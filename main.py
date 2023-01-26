@@ -16,7 +16,8 @@ def start(message):
 
 @bot.message_handler(commands=['help'])
 def help(message):
-    bot.reply_to(message, 'Commands: \n /start \n /help \n /BTCBUSD \n /ETHBUSD \n /XTZBUSD \n /XTZBIDR \n /BUSDBIDR')
+    bot.reply_to(message, 'Commands: \n /start \n /help')
+    # bot.reply_to(message, 'Commands: \n /start \n /help \n /BTCBUSD \n /ETHBUSD \n /XTZBUSD \n /XTZBIDR \n /BUSDBIDR')
 
 
 @bot.message_handler(commands=['BTCBUSD'])
@@ -67,4 +68,4 @@ def btc(message):
     bot.reply_to(message, f'The current price of BUSD is {price:.2f} BIDR.')
 
 
-bot.polling()
+bot.infinity_polling(logger_level=10)
