@@ -26,7 +26,7 @@ def btc(message):
     response = requests.get(url)
     data = response.json()
     price = float(data['price'])
-    bot.reply_to(message, f'The current price of Bitcoin is {price:.2f} BUSD.')
+    bot.reply_to(message, f'The current price of Bitcoin is {price:,.2f} BUSD.')
 
 @bot.message_handler(commands=['ETHBUSD'])
 def btc(message):
@@ -34,7 +34,7 @@ def btc(message):
     response = requests.get(url)
     data = response.json()
     price = float(data['price'])
-    bot.reply_to(message, f'The current price of Ethereum is {price:.2f} BUSD.')
+    bot.reply_to(message, f'The current price of Ethereum is {price:,.2f} BUSD.')
 
 
 @bot.message_handler(commands=['XTZBUSD'])
@@ -43,7 +43,7 @@ def btc(message):
     response = requests.get(url)
     data = response.json()
     price = float(data['price'])
-    bot.reply_to(message, f'The current price of Tezos is {price:.2f} BUSD.')
+    bot.reply_to(message, f'The current price of Tezos is {price:,.2f} BUSD.')
 
 
 @bot.message_handler(commands=['XTZBIDR'])
@@ -56,7 +56,7 @@ def btc(message):
     response = requests.get(url)
     data = response.json()
     USDtoIDR = float(data['price'])
-    bot.reply_to(message, f'The current price of Tezos is {XTZinUSD * USDtoIDR:.2f} BIDR.')
+    bot.reply_to(message, f'The current price of Tezos is {XTZinUSD * USDtoIDR:,.2f} BIDR.')
 
 
 @bot.message_handler(commands=['BUSDBIDR'])
@@ -65,7 +65,8 @@ def btc(message):
     response = requests.get(url)
     data = response.json()
     price = float(data['price'])
-    bot.reply_to(message, f'The current price of BUSD is {price:.2f} BIDR.')
+    bot.reply_to(message, f'The current price of BUSD is {price:,.2f} BIDR.')
 
 
 bot.infinity_polling(logger_level=10)
+# It's worth noting that in python-telegram-bot (telebot) library, logging.CRITICAL is 1 and logging.ERROR is 40 , logging.WARNING is 30, logging.INFO is 20, and logging.DEBUG is 10.
