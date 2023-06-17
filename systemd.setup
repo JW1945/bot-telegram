@@ -1,0 +1,17 @@
+/etc/systemd/system# cat telegram-bot.service 
+
+
+[Unit]
+Description=Telegram BOT
+After=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ubuntu/bot-telegram
+ExecStart=/home/ubuntu/.local/bin/pipenv run python3 /home/ubuntu/bot-telegram/main.py
+Restart=always
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+
